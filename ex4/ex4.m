@@ -100,8 +100,7 @@ fprintf(['Cost at parameters (loaded from ex4weights): %f '...
          '\n(this value should be about 0.383770)\n'], J);
 
 fprintf('Program paused. Press enter to continue.\n');
-%XXX pause;
-return;
+pause;
 
 
 %% ================ Part 5: Sigmoid Gradient  ================
@@ -119,7 +118,7 @@ fprintf('\n\n');
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
-
+return;
 
 %% ================ Part 6: Initializing Pameters ================
 %  In this part of the exercise, you will be starting to implment a two
