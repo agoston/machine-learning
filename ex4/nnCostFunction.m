@@ -85,6 +85,10 @@ end
 
 J = J / m;
 
+% add regularization - generate non-bias thetas first
+t1 = Theta1(:,2:size(Theta1,2));
+t2 = Theta2(:,2:size(Theta2,2));
+J = J + lambda/(2*m)*(sum((t1.^2)(:)) + sum((t2.^2)(:)));
 
 % -------------------------------------------------------------
 
