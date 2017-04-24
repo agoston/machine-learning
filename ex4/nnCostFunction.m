@@ -65,9 +65,10 @@ Theta2_grad = zeros(size(Theta2));
 
 % add bias column
 X = [ones(m,1) X]; % (5000,401)
+a1 = X; % (5000, 401)
 
 % layer2 (hidden_layer)
-a2 = sigmoid(X * Theta1'); % (5000, 25)
+a2 = sigmoid(a1 * Theta1'); % (5000, 25)
 a2 = [ones(m,1) a2]; % (5000, 26)
 
 % layer3 (output_layer)
@@ -91,6 +92,34 @@ t2 = Theta2(:,2:size(Theta2,2));
 J = J + lambda/(2*m)*(sum((t1.^2)(:)) + sum((t2.^2)(:)));
 
 % -------------------------------------------------------------
+% back propagation
+
+% create expanded y
+ye = zeros(m, num_labels); % (5000, 10)
+for i = 1:m
+  ye(i,y(i))=1;
+end
+% this could be usable above to replace the for -- but at the cost of having to 
+% create a lot of matrices, which, in the end, is probably slower than an O(n) 
+% for cycle with a negligible body
+
+d3 = a3 - ye; % (5000, 10)
+
+% a2 is already sigmoid so we just calculate sigmoidGradient on the fly
+d2 = (d3 * Theta2) .* (a2 .* (1 - a2)); % (5000, 26)
+% remove bias 
+d2 = d2(:,2:end); % (5000, 25)
+
+Theta2_grad = Theta2_grad + d3' * a2; % (10, 26)
+Theta1_grad = Theta1_grad + d2' * a1; % (25, 401)
+
+% add regularization (except for bias)
+t1 = Theta1;
+t2 = Theta2;
+t1(:,1) = 0;
+t2(:,1) = 0;
+Theta1_grad = (Theta1_grad + lambda * t1)/m;
+Theta2_grad = (Theta2_grad + lambda * t2)/m;
 
 % =========================================================================
 

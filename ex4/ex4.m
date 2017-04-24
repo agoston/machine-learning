@@ -80,8 +80,8 @@ J = nnCostFunction(nn_params, input_layer_size, hidden_layer_size, ...
 fprintf(['Cost at parameters (loaded from ex4weights): %f '...
          '\n(this value should be about 0.287629)\n'], J);
 
-fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
+%XXX fprintf('\nProgram paused. Press enter to continue.\n');
+%XXX pause;
 
 %% =============== Part 4: Implement Regularization ===============
 %  Once your cost function implementation is correct, you should now
@@ -99,8 +99,8 @@ J = nnCostFunction(nn_params, input_layer_size, hidden_layer_size, ...
 fprintf(['Cost at parameters (loaded from ex4weights): %f '...
          '\n(this value should be about 0.383770)\n'], J);
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+%XXX fprintf('Program paused. Press enter to continue.\n');
+%XXXX pause;
 
 
 %% ================ Part 5: Sigmoid Gradient  ================
@@ -116,9 +116,9 @@ fprintf('Sigmoid gradient evaluated at [-1 -0.5 0 0.5 1]:\n  ');
 fprintf('%f ', g);
 fprintf('\n\n');
 
-fprintf('Program paused. Press enter to continue.\n');
-pause;
-return;
+%XXX fprintf('Program paused. Press enter to continue.\n');
+%XXX pause;
+
 
 %% ================ Part 6: Initializing Pameters ================
 %  In this part of the exercise, you will be starting to implment a two
@@ -146,7 +146,7 @@ fprintf('\nChecking Backpropagation... \n');
 %  Check gradients by running checkNNGradients
 checkNNGradients;
 
-fprintf('\nProgram paused. Press enter to continue.\n');
+%XXX fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
 
