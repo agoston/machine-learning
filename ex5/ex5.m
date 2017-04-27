@@ -94,7 +94,7 @@ plot(X, [ones(m, 1) X]*theta, '--', 'LineWidth', 2)
 hold off;
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
+return;
 
 
 %% =========== Part 5: Learning Curve for Linear Regression =============
