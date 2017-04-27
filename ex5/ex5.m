@@ -94,7 +94,7 @@ plot(X, [ones(m, 1) X]*theta, '--', 'LineWidth', 2)
 hold off;
 
 fprintf('Program paused. Press enter to continue.\n');
-return;
+pause;
 
 
 %% =========== Part 5: Learning Curve for Linear Regression =============
@@ -123,7 +123,7 @@ for i = 1:m
 end
 
 fprintf('Program paused. Press enter to continue.\n');
-pause;
+return;
 
 %% =========== Part 6: Feature Mapping for Polynomial Regression =============
 %  One solution to this is to use polynomial regression. You should now
