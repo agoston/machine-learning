@@ -64,7 +64,7 @@ for i = 1:m
   iTheta = trainLinearReg(iX, iy, lambda);
   
   h = iX * iTheta;
-  error_train(i) = sum((h - iy) .^ 2)/(2*m);
+  error_train(i) = sum((h - iy) .^ 2)/(2*i);
   
   hv = Xv * iTheta;
   error_val(i) = sum((hv - yval) .^ 2)/(2*mv);
