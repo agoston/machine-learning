@@ -123,7 +123,7 @@ for i = 1:m
 end
 
 fprintf('Program paused. Press enter to continue.\n');
-return;
+pause;
 
 %% =========== Part 6: Feature Mapping for Polynomial Regression =============
 %  One solution to this is to use polynomial regression. You should now
@@ -164,7 +164,7 @@ pause;
 %  lambda to see how the fit and learning curve change.
 %
 
-lambda = 0;
+lambda = 5;
 [theta] = trainLinearReg(X_poly, y, lambda);
 
 % Plot training data and fit
