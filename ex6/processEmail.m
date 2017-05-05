@@ -8,6 +8,7 @@ function word_indices = processEmail(email_contents)
 
 % Load Vocabulary
 vocabList = getVocabList();
+m = size(vocabList,1);
 
 % Init return value
 word_indices = [];
@@ -57,9 +58,7 @@ l = 0;
 while ~isempty(email_contents)
 
     % Tokenize and also get rid of any punctuation
-    [str, email_contents] = ...
-       strtok(email_contents, ...
-              [' @$/#.-:&*+=[]?!(){},''">_<;%' char(10) char(13)]);
+    [str, email_contents] = strtok(email_contents, [' @$/#.-:&*+=[]?!(){},''">_<;%' char(10) char(13)]);
    
     % Remove any non alphanumeric characters
     str = regexprep(str, '[^a-zA-Z0-9]', '');
@@ -71,7 +70,7 @@ while ~isempty(email_contents)
     end;
 
     % Skip the word if it is too short
-    if length(str) < 1
+    if length(str) <= 1
        continue;
     end
 
@@ -97,14 +96,20 @@ while ~isempty(email_contents)
     %       str2). It will return 1 only if the two strings are equivalent.
     %
 
+    ind = -1;
+    
+    for i = 1:m
+      if (strcmp(vocabList{i}, str))
+        ind = i;
+        break;
+      end
+    end
 
-
-
-
-
-
-
-
+    if (ind < 0)
+      continue;
+    end
+    
+    word_indices = [word_indices; ind];
 
     % =============================================================
 
