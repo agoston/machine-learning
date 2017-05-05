@@ -57,7 +57,7 @@ fprintf('Length of feature vector: %d\n', length(features));
 fprintf('Number of non-zero entries: %d\n', sum(features > 0));
 
 fprintf('Program paused. Press enter to continue.\n');
-return;
+pause;
 
 %% =========== Part 3: Train Linear SVM for Spam Classification ========
 %  In this section, you will train a linear classifier to determine if an
@@ -90,6 +90,7 @@ fprintf('\nEvaluating the trained Linear SVM on a test set ...\n')
 p = svmPredict(model, Xtest);
 
 fprintf('Test Accuracy: %f\n', mean(double(p == ytest)) * 100);
+fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
 
