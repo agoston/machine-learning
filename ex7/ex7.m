@@ -93,7 +93,7 @@ initial_centroids = [3 3; 6 2; 8 5];
 fprintf('\nK-Means Done.\n\n');
 
 fprintf('Program paused. Press enter to continue.\n');
-return;
+pause;
 
 %% ============= Part 4: K-Means Clustering on Pixels ===============
 %  In this exercise, you will use K-Means to compress an image. To do this,
