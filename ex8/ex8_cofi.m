@@ -80,7 +80,7 @@ fprintf('\nChecking Gradients (without regularization) ... \n');
 checkCostFunction;
 
 fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
+return;
 
 
 %% ========= Part 4: Collaborative Filtering Cost Regularization ========
