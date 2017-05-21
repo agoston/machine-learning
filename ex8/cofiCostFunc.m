@@ -42,16 +42,16 @@ Theta_grad = zeros(size(Theta));
 h = X*Theta'; % (num_movies, num_users)
 h = h - Y; % (num_movies, num_users)
 h = h .* R; % (num_movies, num_users)
-h = h .^ 2;
+h = h .^ 2; % (num_movies, num_users)
 
-J = 0.5 * (sum(h(:)) + lambda * (sum(Theta(:)) + sum(X(:))));
+J = 0.5 * (sum(h(:)) + lambda * (sum(Theta(:) .^ 2) + sum(X(:) .^ 2)));
 
 % XXX will this work? -> paper
 h = X*Theta'; % (num_movies, num_users)
 h = h - Y; % (num_movies, num_users)
 h = h .* R; % (num_movies, num_users)
 h = h * Theta; % (num_movies, num_features)
-h = h + X .* lambda;
+h = h + (X .* lambda);
 X_grad = h;
 
 % XXX will this work? -> paper
@@ -59,7 +59,7 @@ h = X*Theta'; % (num_movies, num_users)
 h = h - Y; % (num_movies, num_users)
 h = h .* R; % (num_movies, num_users)
 h = h' * X; % (num_users, num_features)
-h = h + Theta .* lambda;
+h = h + (Theta .* lambda);
 Theta_grad = h;
 
 % =============================================================
