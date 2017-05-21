@@ -54,6 +54,13 @@ h = h * Theta; % (num_movies, num_features)
 h = h + X .* lambda;
 X_grad = h;
 
+% XXX will this work? -> paper
+h = X*Theta'; % (num_movies, num_users)
+h = h - Y; % (num_movies, num_users)
+h = h .* R; % (num_movies, num_users)
+h = h' * X; % (num_users, num_features)
+h = h + Theta .* lambda;
+Theta_grad = h;
 
 % =============================================================
 

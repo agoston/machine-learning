@@ -80,7 +80,7 @@ fprintf('\nChecking Gradients (without regularization) ... \n');
 checkCostFunction;
 
 fprintf('\nProgram paused. Press enter to continue.\n');
-return;
+pause;
 
 
 %% ========= Part 4: Collaborative Filtering Cost Regularization ========
@@ -112,7 +112,7 @@ fprintf('\nChecking Gradients (with regularization) ... \n');
 checkCostFunction(1.5);
 
 fprintf('\nProgram paused. Press enter to continue.\n');
-pause;
+return;
 
 
 %% ============== Part 6: Entering ratings for a new user ===============
